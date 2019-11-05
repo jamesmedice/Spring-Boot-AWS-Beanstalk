@@ -1,0 +1,32 @@
+#set up properties
+server:
+    port: ${port:8100}
+
+
+management:
+    security:
+        enabled: false
+    endpoint:
+        restart:
+            enabled: true
+
+spring:
+    data:
+        rest: 
+            base-path: /api
+    application:
+        name: standalone
+    datasource:
+        url: jdbc:mysql://${rds.hostname:127.0.0.1}:${rds.port:3306}/${rds.db.name:beanstalk}?createDatabaseIfNotExist=true&autoReconnect=true
+        password: ${rds.password:tpm1234}
+        username: ${rds.username:root}
+        schema: classpath:/schema.sql
+        initialization-mode: always
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        generate-ddl: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
