@@ -1,6 +1,6 @@
 #set up properties
 server:
-    port: ${port:8100}
+    port: ${SERVER_PORT:8100}
 
 
 management:
