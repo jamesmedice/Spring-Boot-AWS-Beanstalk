@@ -1,5 +1,6 @@
+create database IF NOT EXISTS marketplace;
 
-USE aatr84cdou33y3;
+USE marketplace;
 
 		
 CREATE TABLE IF NOT EXISTS company (
